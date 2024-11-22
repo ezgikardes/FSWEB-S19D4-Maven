@@ -31,7 +31,7 @@ public class MovieServiceImpl implements MovieService{
         if (optionalMovie.isPresent()){
             return optionalMovie.get();
         } else {
-            throw new ApiException("Movie with given id cannot find", HttpStatus.NOT_FOUND);
+            throw new ApiException("Movie is not found with id: " + id, HttpStatus.NOT_FOUND);
         }
     }
 

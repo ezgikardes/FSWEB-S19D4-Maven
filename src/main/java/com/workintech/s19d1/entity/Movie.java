@@ -33,7 +33,8 @@ public class Movie {
     @Column(name = "release_date")
     private LocalDate releaseDate;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.DETACH,
+            CascadeType.REFRESH, CascadeType.PERSIST})
     @JoinTable(name = "movie_actor", schema = "fsweb",
     joinColumns = @JoinColumn(name = "actor_id"),
     inverseJoinColumns = @JoinColumn(name = "id"))

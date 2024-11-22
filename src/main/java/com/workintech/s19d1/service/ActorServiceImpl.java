@@ -31,7 +31,7 @@ public class ActorServiceImpl implements ActorService {
         if (optionalActor.isPresent()){
             return optionalActor.get();
         } else {
-            throw new ApiException("Actor with given id cannot find", HttpStatus.NOT_FOUND);
+            throw new ApiException("actor is not found with id: " + id, HttpStatus.BAD_REQUEST);
         }
     }
 

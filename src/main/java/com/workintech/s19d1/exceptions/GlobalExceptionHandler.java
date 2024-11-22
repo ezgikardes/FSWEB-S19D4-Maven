@@ -21,7 +21,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<ExceptionResponse> exceptionHandler(Exception exception){
         ExceptionResponse response = new ExceptionResponse(
-                exception.getMessage(), HttpStatus.BAD_REQUEST.value(), LocalDateTime.now());
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+                exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value(), LocalDateTime.now());
+        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

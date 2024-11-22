@@ -33,7 +33,8 @@ public class Actor {
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.DETACH,
+            CascadeType.REFRESH, CascadeType.PERSIST})
     @JoinTable(name = "movie_actor", schema = "fsweb",
     joinColumns = @JoinColumn(name = "actor_id"),
     inverseJoinColumns = @JoinColumn(name = "id"))
@@ -42,5 +43,4 @@ public class Actor {
     public void addMovie(Movie movie){
         movies.add(movie);
     }
-
 }
